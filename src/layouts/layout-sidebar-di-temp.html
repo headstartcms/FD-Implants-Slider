@@ -1,0 +1,98 @@
+{{!-- This is the base layout for your project, and will be used on every page. --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{!— Required meta tags --}}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Finest Dental" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <title>UK's Finest Dental Implants</title>
+    <link rel="stylesheet" href="{{root}}/css/app.css">
+    <link rel="shortcut icon" href="https://finestdental.co.uk/favicon.ico" />
+    <script async src="//176199.tctm.co/t.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-58568623-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-58568623-1');
+    </script>
+</head>
+
+<body id="posh" class="fixed-header site">
+<div id="cover" style="display: none;">
+</div>
+    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+    {{>di-sidepanel}}
+    {{>di-nav}}
+    <main role="main" class="invisalign container-fluid p-0">
+        {{> body}}
+    </main>
+    {{>di-footer}}
+    {{>modal-video}}
+    {{>modal-form}}
+    {{>modal-guarantee}}
+    <script src="{{root}}/js/app.js"></script>
+<script type="application/javascript">
+
+
+    function smallScreen(){
+        return $(window).width() <= 1179;
+    }
+
+    function initSidebarHide (){
+        var offsetTop = $(".loadnav").offset().top;
+        var scrollTop = $(window).scrollTop() + 150;
+
+        if(scrollTop > offsetTop){
+            $("#csfloater").fadeIn(200);
+        }else if(scrollTop < offsetTop){
+            $("#csfloater").fadeOut(200);
+        }
+    }
+
+    $(document).ready(function() {
+        if(!smallScreen()){
+            initSidebarHide();
+        }
+    });
+
+    $(window).scroll(function(){
+        if(!smallScreen()){
+            initSidebarHide();
+        }
+    });
+
+
+</script>
+<script type="text/javascript">
+    adroll_adv_id = "A3S22IZGENGDLL3L7YI4NK";
+    adroll_pix_id = "JBZRIZVLERC3DK3JQH3W6I";
+    /* OPTIONAL: provide email to improve user identification */
+    /* adroll_email = "username@example.com"; */
+    (function () {
+        var _onload = function(){
+            if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+            if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+            var scr = document.createElement("script");
+            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+            scr.setAttribute('async', 'true');
+            scr.type = "text/javascript";
+            scr.src = host + "/j/roundtrip.js";
+            ((document.getElementsByTagName('head') || [null])[0] ||
+                document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+        };
+        if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+        else {window.attachEvent('onload', _onload)}
+    }());
+</script>
+</body>
+</html>
